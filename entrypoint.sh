@@ -13,7 +13,7 @@ bundle install --jobs 4 --retry 3
 
 echo "Building Jekyll site..."
 
-JEKYLL_ENV=production bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build --trace
 
 echo "Publishing..."
 
@@ -23,5 +23,5 @@ git init
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add .
-git commit -m "published by GitHub Actions"
+git commit -m "${COMMIT_MSG:-"Published by GitHub Actions"}"
 git push --force ${REPO} master:${BRANCH}
