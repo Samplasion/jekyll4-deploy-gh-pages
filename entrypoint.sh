@@ -23,5 +23,5 @@ git init
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git add .
-git commit -m "${COMMIT_MSG:-"Published by GitHub Actions"}"
+git commit -m "`date +"%d/%m/%y %T"` - ${COMMIT_MSG:-"Published by GitHub Actions"}"
 git push --force ${REPO} master:${BRANCH}
